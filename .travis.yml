@@ -1,0 +1,12 @@
+sudo: required
+services:
+  - docker
+
+env:
+  - DOCKER_COMPOSE_VERSION=1.4.2
+
+before_install:
+  - docker build -t enriquesmw/docker-react -f Dockerfile.dev .
+
+script:
+  - docker exec -it plusteam-odoo-web pytest -s --odoo-database=db_test --html=/coverage/local/report.html /mnt/extra-addons/ 
