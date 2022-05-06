@@ -11,3 +11,13 @@ before_install:
 
 script:
   - docker run enriquesmw/docker-react ls -l && echo $?
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-west-2"
+  app: "docker-react"
+  env: "Dockerreact-env"
+  bucket_name: "elasticbeanstalk-us-west-2-648432657698"
+  bucket_path: "docker-react"
+  on:
+    branch: master
