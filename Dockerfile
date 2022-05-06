@@ -5,5 +5,5 @@ RUN apt-get update && \
         python3-pip
 RUN mkdir -p /coverage/all && mkdir -p /coverage/local && chown -R odoo /coverage
 RUN pip3 install pytest-odoo coverage pytest-html
-EXPOSE 8069:80
+EXPOSE 80
 USER odoo
